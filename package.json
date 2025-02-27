@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://phantrunghieu91.github.io/top-heroes",
+  "homepage": "https://phantrunghieu91.github.io/top-heroes/",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
