@@ -33,6 +33,52 @@ awakeningData.forEach((awaken) => {
   });
   total.soulStone += awaken.awaken.soul_stone;
 })
+
+const calculateShards = () => {
+  if( wanted.value.tier < current.value.tier ) {
+    alert('Wanted tier should be greater than current tier');
+    return;
+  }  
+  if( wanted.value.tier === current.value.tier && wanted.value.level <= current.value.level ) {
+    alert('Wanted level should be greater than current level');
+    return;
+  }
+
+  let totalShard = 0;
+  let totalSoulStone = 0;
+  let currentTier = parseInt(current.value.tier);
+  let currentLevel = parseInt(current.value.level);
+  let wantedTier = parseInt(wanted.value.tier);
+  let wantedLevel = wantedTier == 4 || wanted.value.level == '0' ? 5 : parseInt(wanted.value.level);
+  
+  for( let i = currentTier; i < wantedTier; i++ ) {
+    const currentAwaken = awakeningData.find(awaken => awaken.tier === i);
+    if( !currentAwaken ) {
+      alert('Awaken not found');
+      return;
+    }
+    totalSoulStone += currentAwaken.awaken.soul_stone;
+    if( i > 0 ) {
+      // console.log('i: ', i,'currentLevel: ', currentLevel, 'wantedLevel: ', wantedLevel);
+      for( let j = currentLevel + 1; j <= wantedLevel; j++ ) {
+        const currentProcess = currentAwaken.process.find(process => process.level === j);
+        if( !currentProcess ) {
+          alert('Process not found');
+          return;
+        }
+        totalShard += currentProcess.shard;
+      }
+    }
+    totalShard += currentAwaken.awaken.shard;
+    currentLevel = 0;
+  }
+  calcTotal.value = { shard: totalShard, soulStone: totalSoulStone }
+}
+const resetInputs = () => {
+  current.value = { tier: '0', level: '0' };
+  wanted.value = { tier: '1', level: '0' };
+  calcTotal.value = { shard: 0, soulStone: 0 };
+}
 </script>
 <template>
   <Container>
@@ -47,7 +93,8 @@ awakeningData.forEach((awaken) => {
           <option value="0">0</option>
         </select>
         <select name="current-level" id="current-level" v-else v-model="current.level"
-          class="w-full p-2 border border-gray-300 rounded bg-gray-100">
+        class="w-full p-2 border border-gray-300 rounded bg-gray-100">
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -59,7 +106,7 @@ awakeningData.forEach((awaken) => {
         v-model="wanted.tier" />
       <div class="bg-white p-4 rounded shadow">
         <label for="wanted-level" class="block mb-2">Wanted level</label>
-        <select name="wanted-level" id="wanted-level" v-if="wanted.tier === '0'" v-model="wanted.level"
+        <select name="wanted-level" id="wanted-level" v-if="wanted.tier === '4'" v-model="wanted.level"
           class="w-full p-2 border border-gray-300 rounded bg-gray-100">
           <option value="0">0</option>
         </select>
@@ -76,7 +123,12 @@ awakeningData.forEach((awaken) => {
       <div class="col-span-2 md:col-span-4 bg-white p-4 rounded shadow grid grid-cols-2 md:grid-cols-3 gap-4">
         <span>Current Tier: {{ current.tier }} - Current Level: {{ current.level }}</span>
         <span>Wanted Tier: {{ wanted.tier }} - Wanted Level: {{ wanted.level }}</span>
-        <span>Total: {{ calcTotal.shard }} shards, {{ calcTotal.soulStone }} soul stone.</span>
+        <span class="text-rose-700">Total: {{ calcTotal.shard }} shards, {{ calcTotal.soulStone }} soul stone.</span>
+      </div>
+      <div class="flex justify-center gap-4 col-span-2 md:col-span-4">
+        <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
+          @click="calculateShards">Calculate</button>
+        <button type="reset" class="px-4 py-2 bg-gray-400 rounded cursor-pointer" @click="resetInputs">Reset</button>
       </div>
     </div>
     <div class="flex justify-center w-full">
