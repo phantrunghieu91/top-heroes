@@ -1,0 +1,52 @@
+[
+  {
+    "tier": 0,
+    "process": [],
+    "awaken": {
+      "shard": 5,
+      "soul_stone": 1
+    }
+  },
+  {
+    "tier": 1,
+    "process": [
+      { "level": 1, "shard": 5 },
+      { "level": 2, "shard": 10 },
+      { "level": 3, "shard": 10 },
+      { "level": 4, "shard": 15 },
+      { "level": 5, "shard": 15 }
+    ],
+    "awaken": {
+      "shard": 15,
+      "soul_stone": 2
+    }
+  },
+  {
+    "tier": 2,
+    "process": [
+      { "level": 1, "shard": 15 },
+      { "level": 2, "shard": 15 },
+      { "level": 3, "shard": 20 },
+      { "level": 4, "shard": 20 },
+      { "level": 5, "shard": 20 }
+    ],
+    "awaken": {
+      "shard": 20,
+      "soul_stone": 2
+    }
+  },
+  {
+    "tier": 3,
+    "process": [
+      { "level": 1, "shard": 20 },
+      { "level": 2, "shard": 30 },
+      { "level": 3, "shard": 30 },
+      { "level": 4, "shard": 30 },
+      { "level": 5, "shard": 40 }
+    ],
+    "awaken": {
+      "shard": 40,
+      "soul_stone": 4
+    }
+  }
+]
