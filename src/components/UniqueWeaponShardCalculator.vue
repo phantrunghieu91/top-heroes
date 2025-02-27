@@ -44,24 +44,25 @@ const cellClasses = 'border border-gray-400 p-2 bg-gray-100 text-center';
 
 </script>
 <template>
-  <section class="py-8">
-    <Container :class="`overflow-y-auto`">
-      <h2 class="text-3xl font-bold">Unique Weapon Shard Calculator</h2>
-      <div class="py-8 grid grid-cols-2 gap-2">
-        <InputGroup v-model="level.start" label="Current Level" id="current-level" type="number"
-          :number-options="{ min: 0, max: 20, step: 1 }" />
-        <InputGroup v-model="level.end" label="Wanted Level" id="wanted-level" type="number"
-          :number-options="{ min: 0, max: 20, step: 1 }" />
-        <div class="col-span-2 bg-white p-4 rounded shadow grid grid-cols-3 gap-4">
-          <span>Current Star: {{ level.start }}</span>
-          <span>Wanted Star: {{ level.end }}</span>
-          <span>Total Shards: {{ totalShards }}</span>
-        </div>
-        <div class="flex justify-center gap-4 col-span-2">
-          <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer" @click="calculateShards">Calculate</button>
-          <button type="reset" class="px-4 py-2 bg-gray-400 rounded cursor-pointer" @click="resetInputs">Reset</button>
-        </div>
+  <Container>
+    <h2 class="text-2xl md:text-3xl font-bold text-center">Unique Weapon Shard Calculator</h2>
+    <div class="py-4 grid grid-cols-2 gap-2">
+      <InputGroup v-model="level.start" label="Current Level" id="current-level" type="number"
+        :number-options="{ min: 0, max: 20, step: 1 }" />
+      <InputGroup v-model="level.end" label="Wanted Level" id="wanted-level" type="number"
+        :number-options="{ min: 0, max: 20, step: 1 }" />
+      <div class="col-span-2 bg-white p-4 rounded shadow grid grid-cols-3 gap-4">
+        <span>Current Star: {{ level.start }}</span>
+        <span>Wanted Star: {{ level.end }}</span>
+        <span>Total Shards: {{ totalShards }}</span>
       </div>
+      <div class="flex justify-center gap-4 col-span-2">
+        <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
+          @click="calculateShards">Calculate</button>
+        <button type="reset" class="px-4 py-2 bg-gray-400 rounded cursor-pointer" @click="resetInputs">Reset</button>
+      </div>
+    </div>
+    <div class="w-full overflow-x-auto">
       <table class="mx-auto mt-8 border-collapse border-2">
         <tbody>
           <tr>
@@ -74,6 +75,6 @@ const cellClasses = 'border border-gray-400 p-2 bg-gray-100 text-center';
           </tr>
         </tbody>
       </table>
-    </Container>
-  </section>
+    </div>
+  </Container>
 </template>

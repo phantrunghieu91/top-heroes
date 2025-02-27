@@ -4,7 +4,7 @@ import Container from './Container.vue';
 <template>
   <header>
     <Container :class="`py-4`" :fluid="false">
-      <h1 class="text-6xl text-center font-bold text-grey-900">Top Heroes Charts</h1>
+      <h1 class="text-3xl md:text-6xl text-center font-bold text-grey-900">Top Heroes Charts</h1>
     </Container>
   </header>
 </template>
