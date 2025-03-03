@@ -4,6 +4,8 @@ import InputGroup from './InputGroup.vue';
 import awakeningData from '@/api/awakening.json'
 
 import { ref } from 'vue';
+import TabsContentHeading from './TabsContentHeading.vue';
+import TabsContentFormWrapper from './TabsContentFormWrapper.vue';
 
 const calcTotal = ref({
   shard: 0,
@@ -18,6 +20,10 @@ const wanted = ref({
   level: '0',
 });
 
+/*
+  - cellClasses: A string containing CSS classes for styling table cells. 
+  - headerClasses: A string containing CSS classes for styling table headers.
+*/
 const cellClasses = 'border border-blue-900 px-2 py-1 bg-gray-100 text-center';
 const headerClasses = 'border border-blue-900 px-2 py-4 bg-sky-100 text-center';
 
@@ -82,44 +88,16 @@ const resetInputs = () => {
 </script>
 <template>
   <Container>
-    <h2 class="text-3xl font-bold text-center">Legendary Hero Awakening</h2>
-    <div class="py-4 grid grid-cols-2 md:grid-cols-4 gap-2">
+    <TabsContentHeading :title="'Legendary Hero Awakening'" />
+    <TabsContentFormWrapper>
       <InputGroup label="Current Tier" type="select" :options="['0', '1', '2', '3']" id="current-tier"
         v-model="current.tier" />
-      <div class="bg-white p-4 rounded shadow">
-        <label for="current-level" class="block mb-2">Current level</label>
-        <select name="current-level" id="current-level" v-if="current.tier === '0'" v-model="current.level"
-          class="w-full p-2 border border-gray-300 rounded bg-gray-100">
-          <option value="0">0</option>
-        </select>
-        <select name="current-level" id="current-level" v-else v-model="current.level"
-        class="w-full p-2 border border-gray-300 rounded bg-gray-100">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
+      <InputGroup label="Current Level" type="select" :options="current.tier === '0' ? ['0'] : ['0', '1', '2', '3', '4', '5']" id="current-level"
+        v-model="current.level" />
       <InputGroup label="Wanted Tier" type="select" :options="['1', '2', '3', '4']" id="wanted-tier"
         v-model="wanted.tier" />
-      <div class="bg-white p-4 rounded shadow">
-        <label for="wanted-level" class="block mb-2">Wanted level</label>
-        <select name="wanted-level" id="wanted-level" v-if="wanted.tier === '4'" v-model="wanted.level"
-          class="w-full p-2 border border-gray-300 rounded bg-gray-100">
-          <option value="0">0</option>
-        </select>
-        <select name="level" id="level" v-else v-model="wanted.level"
-          class="w-full p-2 border border-gray-300 rounded bg-gray-100">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
+      <InputGroup label="Wanted Level" type="select" :options="wanted.tier === '4' ? ['0'] : ['0', '1', '2', '3', '4', '5']" id="wanted-level"
+        v-model="wanted.level" />
       <div class="col-span-2 md:col-span-4 bg-white p-4 rounded shadow grid grid-cols-2 md:grid-cols-3 gap-4">
         <span>Current Tier: {{ current.tier }} - Current Level: {{ current.level }}</span>
         <span>Wanted Tier: {{ wanted.tier }} - Wanted Level: {{ wanted.level }}</span>
@@ -130,7 +108,7 @@ const resetInputs = () => {
           @click="calculateShards">Calculate</button>
         <button type="reset" class="px-4 py-2 bg-gray-400 rounded cursor-pointer" @click="resetInputs">Reset</button>
       </div>
-    </div>
+    </TabsContentFormWrapper>
     <div class="flex justify-center w-full">
       <table class="border-collapse border-2 border-blue-900">
         <thead>

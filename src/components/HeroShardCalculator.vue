@@ -2,6 +2,7 @@
 import heroStars from '@/assets/heroes-stars.jpg';
 import Container from './Container.vue';
 import InputGroup from './InputGroup.vue';
+import TabsContentHeading from './TabsContentHeading.vue';
 
 import { ref } from 'vue';
 const tier = ref('legendary');
@@ -74,7 +75,7 @@ const resetInputs = () => {
 </script>
 <template>
   <Container>
-    <h2 class="text-2xl md:text-3xl font-bold text-center">Heroes Shard Calculator</h2>
+    <TabsContentHeading :title="'Heroes Shard Calculator'"/>
     <div class="py-4 grid grid-cols-1 md:grid-cols-3 gap-2">
       <InputGroup label="Select Tier" id="tier" type="select" :options="['legendary', 'mythic']" v-model="tier" />
       <InputGroup label="Enter current star (e.g, 5.1)" id="current-star" type="number" v-model="stars.start"

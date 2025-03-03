@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import castleRequirement from '@/api/castle-requirement.json';
 import Container from './Container.vue';
+import TabsContentHeading from './TabsContentHeading.vue';
 
 type required = {
   level: number;
@@ -23,7 +24,7 @@ const headerClasses = 'border border-blue-900 px-2 py-4 bg-sky-100 text-center';
 
 <template>
   <Container>
-    <h2 class="text-3xl font-bold text-center">Castle Level Requirement</h2>
+    <TabsContentHeading :title="'Castle Level Requirement'" />
     <div class="py-4 flex justify-center w-full">
       <table class="border-collapse border-2 border-blue-900">
         <thead>

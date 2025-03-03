@@ -5,6 +5,7 @@ import UniqueWeaponShardCalculator from '@/components/UniqueWeaponShardCalculato
 import CastleLevelRequire from '@/components/CastleLevelRequire.vue'
 import AwakeningCalculator from '@/components/AwakeningCalculator.vue'
 import Container from './Container.vue'
+import SkillBooksCalculator from './SkillBooksCalculator.vue'
 
 const tabItems = ref([
   {
@@ -30,7 +31,13 @@ const tabItems = ref([
     title: 'Awakening Calculator',
     content: markRaw(AwakeningCalculator),
     isActive: false,
-  }
+  },
+  {
+    id: 'skill-books-calculator',
+    title: 'Skill books Calculator',
+    content: markRaw(SkillBooksCalculator),
+    isActive: false,
+  },
 ]);
 const dropdownState = ref(false);
 const activeTitle = computed(() => tabItems.value.find(item => item.isActive)?.title);
