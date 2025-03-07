@@ -1,0 +1,191 @@
+{
+  "gear_enhance": [
+    {
+      "level": 1,
+      "rune": 1500
+    },
+    {
+      "level": 2,
+      "rune": 1500
+    },
+    {
+      "level": 3,
+      "rune": 1500
+    },
+    {
+      "level": 4,
+      "rune": 1500
+    },
+    {
+      "level": 5,
+      "rune": 2250
+    },
+    {
+      "level": 6,
+      "rune": 2250
+    },
+    {
+      "level": 7,
+      "rune": 2250
+    },
+    {
+      "level": 8,
+      "rune": 2250
+    },
+    {
+      "level": 9,
+      "rune": 3000
+    },
+    {
+      "level": 10,
+      "rune": 3000
+    },
+    {
+      "level": 11,
+      "rune": 3000
+    },
+    {
+      "level": 12,
+      "rune": 3000
+    },
+    {
+      "level": 13,
+      "rune": 3750
+    },
+    {
+      "level": 14,
+      "rune": 3750
+    },
+    {
+      "level": 15,
+      "rune": 3750
+    },
+    {
+      "level": 16,
+      "rune": 3750
+    },
+    {
+      "level": 17,
+      "rune": 4500
+    },
+    {
+      "level": 18,
+      "rune": 4500
+    },
+    {
+      "level": 19,
+      "rune": 4500
+    },
+    {
+      "level": 20,
+      "rune": 4500
+    },
+    {
+      "level": 21,
+      "rune": 5250
+    },
+    {
+      "level": 22,
+      "rune": 5250
+    },
+    {
+      "level": 23,
+      "rune": 5250
+    },
+    {
+      "level": 24,
+      "rune": 5250
+    },
+    {
+      "level": 25,
+      "rune": 6000
+    },
+    {
+      "level": 26,
+      "rune": 6000
+    },
+    {
+      "level": 27,
+      "rune": 6000
+    },
+    {
+      "level": 28,
+      "rune": 6000
+    },
+    {
+      "level": 29,
+      "rune": 6750
+    },
+    {
+      "level": 30,
+      "rune": 6750
+    },
+    {
+      "level": 31,
+      "rune": 6750
+    },
+    {
+      "level": 32,
+      "rune": 6750
+    },
+    {
+      "level": 33,
+      "rune": 7500
+    },
+    {
+      "level": 34,
+      "rune": 7500
+    },
+    {
+      "level": 35,
+      "rune": 7500
+    },
+    {
+      "level": 36,
+      "rune": 7500
+    },
+    {
+      "level": 37,
+      "rune": 8250
+    },
+    {
+      "level": 38,
+      "rune": 8250
+    },
+    {
+      "level": 39,
+      "rune": 8250
+    },
+    {
+      "level": 40,
+      "rune": 8250
+    }
+  ],
+  "gear_promotion": [
+    {
+      "rune": 12500,
+      "gold_ingot": 150,
+      "legendary_promotion_stone": 5
+    },
+    {
+      "rune": 16250,
+      "gold_ingot": 195,
+      "legendary_promotion_stone": 10
+    },
+    {
+      "rune": 20000,
+      "gold_ingot": 240,
+      "legendary_promotion_stone": 15
+    },
+    {
+      "rune": 23500,
+      "gold_ingot": 285,
+      "legendary_promotion_stone": 20
+    },
+    {
+      "rune": 27500,
+      "gold_ingot": 330,
+      "mythic_promotion_stone": 10
+    }
+  ]
+}

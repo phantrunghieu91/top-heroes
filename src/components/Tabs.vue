@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref, markRaw, computed } from 'vue'
+import Container from './Container.vue'
 import HeroShardCalculator from '@/components/HeroShardCalculator.vue'
 import UniqueWeaponShardCalculator from '@/components/UniqueWeaponShardCalculator.vue'
 import CastleLevelRequire from '@/components/CastleLevelRequire.vue'
 import AwakeningCalculator from '@/components/AwakeningCalculator.vue'
-import Container from './Container.vue'
 import SkillBooksCalculator from './SkillBooksCalculator.vue'
+import GearUpgradeCalculator from './GearUpgradeCalculator.vue'
 
 const tabItems = ref([
   {
@@ -36,6 +37,12 @@ const tabItems = ref([
     id: 'skill-books-calculator',
     title: 'Skill books Calculator',
     content: markRaw(SkillBooksCalculator),
+    isActive: false,
+  },
+  {
+    id: 'gear-upgrade-calculator',
+    title: 'Gear Upgrade Calculator',
+    content: markRaw(GearUpgradeCalculator),
     isActive: false,
   },
 ]);
