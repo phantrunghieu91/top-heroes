@@ -36,6 +36,7 @@ const labels = {
   '65': 'Fifth Star'
 }
 const colNum = 2;
+
 const calculate = () => {
   let start: number = parseInt(enhance.value.start);
   let end: number = parseInt(enhance.value.end);
@@ -47,18 +48,23 @@ const calculate = () => {
   let totalGoldIngot = 0;
   let totalLegendaryPromotionStone = 0;
   let totalMythicPromotionStone = 0;
-  if(end <= 40) {
-    for (let i = start; i < (end <= 40 ? end : 40); i++) {
-      totalRune += gearUpgrade.gear_enhance[i].rune;
-    }
+
+  for (let i = start; i < (end <= 40 ? end : 40); i++) {
+    totalRune += gearUpgrade.gear_enhance[i].rune;
   }
-  if(end > 40) {
-    for(let i = start + 1; i <= end; i++) {
+
+  if(end <= 40) {
+    total.value.rune = totalRune;
+    return;
+  }
+
+  if (end > 40) {
+    for (let i = 41; i <= end; i++) {
       const index = i < 46 ? 0 : i < 51 ? 1 : i < 56 ? 2 : i < 61 ? 3 : 4;
       const promotionData = gearUpgrade.gear_promotion[index];
       totalRune += promotionData.rune;
       totalGoldIngot += promotionData.gold_ingot;
-      if( i % 5 === 0) {
+      if (i % 5 === 0) {
         totalLegendaryPromotionStone += promotionData.legendary_promotion_stone ?? 0;
         totalMythicPromotionStone += promotionData.mythic_promotion_stone ?? 0;
       }
@@ -112,8 +118,10 @@ const resetInputs = () => {
       <div class="col-span-1 md:col-span-2 bg-white p-4 rounded shadow grid grid-cols-1 md:grid-cols-2 gap-4">
         <span>Current Level: {{ labels[enhance.start] }}</span>
         <span>Wanted Level: {{ labels[enhance.end] }}</span>
-        <span class="text-rose-700 md:col-span-2 justify-self-center">Total: {{ total.rune }} runes, {{ total.gold_ingot }} gold ingots, {{
-          total.legendary_promotion_stone }} Legendary Promotion Stone, {{ total.mythic_promotion_stone }} Mythic Promotion Stone</span>
+        <span class="text-rose-700 md:col-span-2 justify-self-center">Total: {{ total.rune }} runes, {{ total.gold_ingot
+        }} gold ingots, {{
+            total.legendary_promotion_stone }} Legendary Promotion Stone, {{ total.mythic_promotion_stone }} Mythic
+          Promotion Stone</span>
       </div>
       <FormButtonGroup :calculate="calculate" :reset="resetInputs" :col-num="colNum" />
     </TabsContentFormWrapper>
